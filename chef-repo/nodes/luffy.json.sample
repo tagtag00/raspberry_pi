@@ -1,0 +1,12 @@
+{
+  "run_list": [
+    "recipe[i2c-tools_install]",
+    "recipe[wiringPi_install]",
+    "recipe[UART_enable]",
+    "recipe[ruby_setup]",
+    "recipe[node_setup]"
+  ],
+  "automatic": {
+    "ipaddress": "luffy"
+  }
+}
