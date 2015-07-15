@@ -1,0 +1,8 @@
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+  ssid=<%= node['wlan']['ssid'] %>
+  proto=WPA2
+  key_mgmt=WPA-PSK
+  psk=<%= node['wlan']['password'] %>
+}
