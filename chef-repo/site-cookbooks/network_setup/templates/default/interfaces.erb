@@ -1,0 +1,25 @@
+auto lo
+
+iface lo inet loopback
+<% if node['eth0']['mode'] == 'static' then %>
+iface eth0 inet static
+address <%= node['eth0']['address'] %>
+gateway <%= node['eth0']['gateway'] %>
+netmask <%= node['eth0']['netmask'] %>
+dns-nameservers <%= node['eth0']['dns'] %>
+<% else %>
+iface eth0 inet dhcp
+<% end %>
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+<% if node['wlan']['mode'] == 'static' then %>
+iface default inet static
+address <%= node['wlan']['address'] %>
+gateway <%= node['wlan']['gateway'] %>
+netmask <%= node['wlan']['netmask'] %>
+dns-nameservers <%= node['wlan']['dns'] %>
+<% else %>
+iface default inet dhcp
+<% end %>
