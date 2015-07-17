@@ -4,7 +4,8 @@
     "recipe[wiringPi_install]",
     "recipe[UART_enable]",
     "recipe[ruby_setup]",
-    "recipe[node_setup]"
+    "recipe[node_setup]",
+    "recipe[avahi_install]"
   ],
   "automatic": {
     "ipaddress": "luffy"
